@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe LinksController, type: :request do
+  include_context 'setup'
+
   context "when viewing a link" do
 
     subject do
@@ -11,6 +13,7 @@ describe LinksController, type: :request do
       let(:link_uid) { link.uid }
 
       it "navigates to the page" do
+        binding.pry
         expect(subject).to render_template("links/show")
       end
     end
