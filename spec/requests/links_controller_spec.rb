@@ -7,10 +7,11 @@ describe LinksController, type: :request do
 
     subject do
       get "/links/#{link_id}"
+      response
     end
 
     context "when the link is recognized" do
-      let(:link_id) { link.uid }
+      let(:link_id) { link.id }
 
       it "navigates to the page" do
         expect(subject).to render_template("links/show")
@@ -21,6 +22,7 @@ describe LinksController, type: :request do
       let(:link_id) { "a" }
 
       it "return a 404" do
+        binding.pry
         expect(subject.status).to eq(404)
         expect(subject.body).to eq("Could not find link with id=a")
         expect(subject).to_not render_template("links/show")
