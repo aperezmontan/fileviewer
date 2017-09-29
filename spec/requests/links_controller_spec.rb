@@ -13,7 +13,6 @@ describe LinksController, type: :request do
       let(:link_uid) { link.uid }
 
       it "navigates to the page" do
-        binding.pry
         expect(subject).to render_template("links/show")
       end
     end
