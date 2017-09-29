@@ -20,6 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 group :development, :test do
+  gem 'factory_girl_rails'
   gem 'pry'
   gem 'rspec-rails', '~> 3.6'
   # Adds support for Capybara system testing and selenium driver
