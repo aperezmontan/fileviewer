@@ -6,11 +6,11 @@ describe LinksController, type: :request do
   context "when viewing a link" do
 
     subject do
-      get "links/#{link_uid}"
+      get "/links/#{link_id}"
     end
 
     context "when the link is recognized" do
-      let(:link_uid) { link.uid }
+      let(:link_id) { link.uid }
 
       it "navigates to the page" do
         expect(subject).to render_template("links/show")
@@ -18,7 +18,7 @@ describe LinksController, type: :request do
     end
 
     context "when the link is not recognized" do
-      let(:link_uid) { "a" }
+      let(:link_id) { "a" }
 
       it "return a 404" do
         expect(subject.status).to eq(404)
