@@ -7,7 +7,7 @@ class UploadsController < ApplicationController
 
   def create
     Upload.create(name: create_name)
-    redirect_to :index
+    redirect_to uploads_path
   end
 
   private
