@@ -1,1 +1,17 @@
-<h1>Link</h1>
+<% if @uploads %>
+  <h2> Uploads </h2>
+    <% @uploads.each do |upload| %>
+      <table>
+        <%= upload.name %>
+        <% upload.links.each do |link| %>
+          <tr><%= link_to link.id, link %></tr>
+        <% end %>
+      </table>
+      <p> Generate link for <%= upload.name %> </p>
+    <% end %>
+
+<% else %>
+  <h2>Press button below to upload a file<h2>
+<% end %>
+
+<%= button_to 'New Upload', {:controller => "uploads", :action => "create", :method => :post}  %>
