@@ -21,11 +21,8 @@ describe LinksController, type: :request do
     context "when the link is not recognized" do
       let(:link_id) { "a" }
 
-      it "return a 404" do
-        binding.pry
-        expect(subject.status).to eq(404)
-        expect(subject.body).to eq("Could not find link with id=a")
-        expect(subject).to_not render_template("links/show")
+      it "raises an error" do
+        expect{subject}.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end

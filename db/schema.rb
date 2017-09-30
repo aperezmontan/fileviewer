@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929233534) do
+ActiveRecord::Schema.define(version: 20170930001027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20170929233534) do
     t.datetime "last_viewed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "uploads_id"
+    t.index ["uploads_id"], name: "index_links_on_uploads_id"
   end
 
   create_table "uploads", force: :cascade do |t|
@@ -27,4 +29,5 @@ ActiveRecord::Schema.define(version: 20170929233534) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "links", "uploads", column: "uploads_id"
 end
