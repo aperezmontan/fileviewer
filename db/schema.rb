@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20170930001027) do
     t.datetime "last_viewed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "uploads_id"
-    t.index ["uploads_id"], name: "index_links_on_uploads_id"
+    t.bigint "upload_id"
+    t.index ["upload_id"], name: "index_links_on_upload_id"
   end
 
   create_table "uploads", force: :cascade do |t|
@@ -29,5 +29,5 @@ ActiveRecord::Schema.define(version: 20170930001027) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "links", "uploads", column: "uploads_id"
+  add_foreign_key "links", "uploads"
 end
