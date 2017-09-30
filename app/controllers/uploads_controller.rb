@@ -1,4 +1,6 @@
 class UploadsController < ApplicationController
+  require 'faker'
+
   def index
     @uploads = Upload.all
   end
